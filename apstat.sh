@@ -20,8 +20,7 @@ if [ -z "$1" ] ; then
 		PARENT_PID=`cat /var/run/apache.pid`
 		ARCH="apache"
 	else
-		func_echo "Error:  unable to find apache pid, is it running? Alternatively you can provide the pid at runtime (i.e 
-./apstat.sh pid)."
+		func_echo "Error: Unable to find PID? You can provide the pid at runtime (i.e ./apstat.sh pid)."
 	fi
 
 else
@@ -67,8 +66,8 @@ LISTEN_STATE=`netstat -ap | grep $ARCH | grep 'LISTEN' | wc -l`
 ESTB_STATE=`netstat -ap | grep $ARCH | grep -e 'ESTABLISHED' -e 'CONNECTED' | wc -l`
 
 # Highest connection count per IP
-CONN_COUNT_IP=`netstat -tp | grep $ARCH | awk '{print $4}' | awk -F':' '{print $4}' |  grep ^[0-9] | uniq -c | sort -rn | head -n 
-10`
+CONN_COUNT_IP=`netstat -tp | grep $ARCH | awk '{print $4}' | awk -F':' '{print $4}' |  grep ^[0-9]| \\
+ uniq -c | sort -rn | head -n 10`
 
 
 # Generate IO statistics.
