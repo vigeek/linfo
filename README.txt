@@ -11,6 +11,12 @@ Whole set - Download the package from the download page on Github.  Extract to d
 
 chmod +x *.sh
 
+(Usage)
+
+Apache Stats (apstat.sh):  ./apstat.sh
+Pidinfo (pidinfo.sh):  ./pidinfo.sh pid
+Sysinfo (sysinfo.sh):  ./sysinfo.sh
+
 
 (License)
 ------------------------------------------------------------
