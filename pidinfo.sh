@@ -137,7 +137,9 @@ echo "Maximum Memory Used:  $(grep VmPeak /proc/$PID_VAR/status | awk '{print $2
 awk '{ s += $1 } END { print s/1024, "Mb"}')"
 
 # Active connections
-echo "Active connections: $(netstat -np | grep $PID_VAR | wc -l)"
+func_echo "Active Connections"
+echo "Connection count: $(netstat -np | grep $PID_VAR | wc -l)"
+echo "$(netstat -np | grep $PID_VAR)"
 
 func_echo "IO Statistics"
 
